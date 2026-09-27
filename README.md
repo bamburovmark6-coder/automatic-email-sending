@@ -25,12 +25,44 @@ pip install keyring
 
 ##  Настройка проекта
   Шаг 1: Откройте hourly_email_sender.py и заполните настройки:
-sender_email = "ваша_почта@gmail.com"           # Ваш Gmail
-sender_password = "ваш_пароль_приложения"       # Пароль из 16 символов
-receiver_email = ["почта_получателя@mail.ru"]   # Кому отправлять
-subject = "Тема письма"                         # Тема
-your_attachments = r"C:\Users\Mark\OneDrive\IT\Proect3_Python\Top_Cryptos_By_Volume 2.csv"  # Путь к файлу
-body_text = "Текст письма"                      # Основной текст
+sender_email = "ВАШ_АДРЕС@gmail.com"                        # Ваш Gmail
+sender_password = "ВАШ_ПАРОЛЬ_ПРИЛОЖЕНИЯ"                   # Пароль из 16 символов
+receiver_email = ["АДРЕС_ПОЛУЧАТЕЛЯ", "АДРЕС_ПОЛУЧАТЕЛЯ"]   # Кому отправлять
+subject = "ЭТО_ТЕМА_ПИСЬМА"                                 # Тема
+body_text = "Текст письма"                                  # Основной текст
+your_attachments = r"C:\Users\Mark\Desktop\..."             # Путь до Приложения к письму
+⚠️ Важно: Путь к файлу должен содержать только латинские буквы!
+
+  Шаг 2: Откройте test_send.py и заполните те же поля (для тестирования).
 
 
+##  Тестирование
+  Перед запуском основного скрипта всегда проверяйте связь через python test_send.py
+
+  
+##  Запуск
+  Способ 1: Через .bat файл (рекомендуется)
+  Настройка .bat
+1. cd /d "%~dp0" (Если bat находится в той же папке что и остальные файлы
+  или
+2.cd /d "C:\Users\...\hourly_email_sender.py" (Путь до hourly_email_sender.py)
+
+  Способ 2: Через hourly_email_sender.py файл 
+
+  
+##  Результат
+  Так выглядит письмо, полученное от скрипта:
 <img width="1070" height="789" alt="Screenshot of the received email" src="https://github.com/user-attachments/assets/5113679b-ecbb-4128-aa13-a7a5f2d3ee38" />
+
+
+##  Возможные проблемы
+1. ModuleNotFoundError: No module named 'yagmail'
+     Выполните pip install yagmail
+3. 'ascii' codec can't encode characters
+     Уберите русские буквы из пути к файлу
+5. FileNotFoundError
+     Проверьте путь в переменной your_attachments
+7. Authentication failed
+     Используйте пароль приложения, а не обычный пароль Gmail
+9. Письмо не доходит
+     Проверьте папку "Спам" у получателя
