@@ -4,11 +4,33 @@
 
 ---
 
-##  Структура проекта
-Proect3_Python/
+##  Структура проекта:
 - hourly_email_sender.py   # Основной скрипт (отправка по расписанию)
 - test_send.py             # Тестовый скрипт (быстрая проверка связи)
 - run_hourly_email.bat     # Файл для удобного запуска в Windows
-- README.md                # Этот файл
+
+##  Необходимые библиотеки
+  Откройте командную строку (Win + R → введите cmd) и выполните:
+pip install yagmail
+pip install keyring
+
+
+##  Настройка Gmail
+  Для работы скрипта нужен пароль приложения от Gmail (обычный пароль от аккаунта не подойдет).
+1. Зайдите в настройки аккаунта Google
+2. Перейдите в раздел Безопасность → Двухэтапная аутентификация (должна быть включена)
+3. В поиске настроек введите "Пароли приложений"
+4. Создайте новый пароль для приложения "Почта"
+5. Скопируйте сгенерированный пароль (16 символов) — он понадобится в коде
+
+##  Настройка проекта
+  Шаг 1: Откройте hourly_email_sender.py и заполните настройки:
+sender_email = "ваша_почта@gmail.com"           # Ваш Gmail
+sender_password = "ваш_пароль_приложения"       # Пароль из 16 символов
+receiver_email = ["почта_получателя@mail.ru"]   # Кому отправлять
+subject = "Тема письма"                         # Тема
+your_attachments = r"C:\Users\Mark\OneDrive\IT\Proect3_Python\Top_Cryptos_By_Volume 2.csv"  # Путь к файлу
+body_text = "Текст письма"                      # Основной текст
+
 
 <img width="1070" height="789" alt="Screenshot of the received email" src="https://github.com/user-attachments/assets/5113679b-ecbb-4128-aa13-a7a5f2d3ee38" />
